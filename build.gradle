@@ -1,5 +1,8 @@
-apply plugin: 'java'
-apply plugin: 'maven-publish'
+plugins {
+    id 'java'
+    id 'org.sonarqube' version '4.0.0.2929'
+    id 'maven-publish'
+}
 
 group = 'com.github.jitpack'
 version = '2.0'
@@ -13,6 +16,13 @@ repositories {
 
 dependencies {
   implementation 'com.google.guava:guava:29.0-jre'
+}
+
+sonarqube {
+    properties {
+        property 'sonar.host.url', 'http://192.168.1.12:9000/'
+        property 'sonar.login', 'a39a83e08cd27c6aaaeb3db1e6e3ad2874f0e30d'
+    }
 }
 
 java {

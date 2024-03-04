@@ -14,10 +14,6 @@ targetCompatibility = 1.8
 repositories {
   mavenCentral()
 }
-
-dependencies {
-  implementation 'com.google.guava:guava:29.0-jre'
-}
 cyclonedxBom {
     includeConfigs = ["runtimeClasspath"]
     projectType = "application"
@@ -28,6 +24,10 @@ cyclonedxBom {
     includeBomSerialNumber = false
     includeLicenseText = false
     componentVersion = "2.0.0"
+}
+
+dependencies {
+  implementation 'com.google.guava:guava:29.0-jre'
 }
 
 sonarqube {

@@ -29,6 +29,8 @@ cyclonedxBom {
 
 dependencies {
   implementation 'com.google.guava:guava:29.0-jre'
+  implementation 'com.fasterxml.jackson.core:jackson-core:2.15.0-rc1'
+
 }
 
 sonarqube {

@@ -6,5 +6,10 @@ pipeline{
         sh './gradlew build'
       }
     }
+      stage('Docker image'){
+          steps{
+              sh 'docker build -t sample:1.0.1 .'
+          }
+      }
   }
 }

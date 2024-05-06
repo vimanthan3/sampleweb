@@ -1,3 +1,5 @@
+import org.cyclonedx.gradle.CycloneDxBomTask
+
 plugins {
     id 'java'
     id 'maven-publish'
@@ -54,7 +56,7 @@ cyclonedxBom {
 }
 
 // Adding a task to generate the CycloneDX BOM
-task generateBom(type: org.cyclonedx.gradle.CycloneDxBomTask) {
+task generateBom(type: CycloneDxBomTask) {
     dependsOn configurations.runtimeClasspath
 }
 
@@ -65,3 +67,4 @@ wrapper {
     gradleVersion = "7.3.3"
     distributionType = Wrapper.DistributionType.ALL
 }
+

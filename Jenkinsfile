@@ -24,7 +24,6 @@ pipeline{
         }
       stage ('Publish') {
             environment {
-                NEXUS_URL = 'http://192.168.1.30:8081'
                 NEXUS_REPO_GROUPID = 'com.logicfocus'
                 NEXUS_REPO_ARTIFACT = 'sampleSCM'
                 NEXUS_REPO = 'sampleSCM'

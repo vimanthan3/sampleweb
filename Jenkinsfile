@@ -22,5 +22,30 @@ pipeline{
                 }
             }
         }
+      stage ('Publish') {
+            environment {
+                NEXUS_REPO_GROUPID = 'com.logicfocus'
+                NEXUS_REPO_ARTIFACT = 'sampleSCM'
+                NEXUS_REPO = 'sampleSCM'
+                CHECKSUM =''
+            }
+            steps {
+                nexusArtifactUploader(
+                    nexusVersion: "${nexusVersion}",
+                    protocol: 'http',
+                    nexusUrl: "${nexusURL}",
+                    groupId: "$NEXUS_REPO_GROUPID",
+                    version: "${releaseVersion}",
+                    repository: "$NEXUS_REPO",
+                    credentialsId: 'nexus1',
+                    artifacts: [
+                        [artifactId: "$NEXUS_REPO_ARTIFACT",
+                         classifier: '',
+                         file: '/home/logicfocus/.jenkins/workspace/vimanthan/sampleSCM/build/libs/sampleSCM-2.0.jar',
+                         type: 'jar']
+                    ]
+                )
+            }
+        }
    }
 }

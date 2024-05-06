@@ -53,14 +53,6 @@ cyclonedxBom {
     componentVersion = "2.0.0"
 }
 
-// Adding a task to generate the CycloneDX BOM
-task generateBom(type: org.cyclonedx.gradle.CycloneDxBomTask) {
-    dependsOn configurations.runtimeClasspath
-}
-
-// Make sure the BOM generation is executed before the build
-build.dependsOn generateBom
-
 wrapper {
     gradleVersion = "7.3.3"
     distributionType = Wrapper.DistributionType.ALL

@@ -5,8 +5,8 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.15.RELEASE'
     id 'org.sonarqube' version '2.7'
     id 'org.cyclonedx.bom' version '1.8.1'
-   
 }
+
 group = 'com.github.jitpack'
 version = '2.0'
 
@@ -14,12 +14,12 @@ sourceCompatibility = 1.8 // java 8
 targetCompatibility = 1.8
 
 repositories {
-  mavenCentral()
+    mavenCentral()
 }
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web:2.6.2'
 }
-
 
 sonarqube {
     properties {
@@ -29,32 +29,42 @@ sonarqube {
 }
 
 java {
-	withSourcesJar()
-	withJavadocJar()
+    withSourcesJar()
+    withJavadocJar()
 }
 
 publishing {
     publications {
         maven(MavenPublication) {
-		from components.java
+            from components.java
         }
     }
 }
+
+cyclonedxBom {
+    includeConfigs = ["runtimeClasspath"]
+    projectType = "application"
+    schemaVersion = "1.5"
+    destination = file("build/reports")
+    outputName = "bom"
+    outputFormat = "xml"
+    includeBomSerialNumber = false
+    includeLicenseText = false
+    componentVersion = "2.0.0"
+}
+
+// Adding a task to generate the CycloneDX BOM
+task generateBom(type: org.cyclonedx.gradle.CycloneDxBomTask) {
+    dependsOn configurations.runtimeClasspath
+}
+
+// Make sure the BOM generation is executed before the build
+build.dependsOn generateBom
 
 wrapper {
     gradleVersion = "7.3.3"
     distributionType = Wrapper.DistributionType.ALL
 }
-cyclonedxBom {
- includeConfigs = ["runtimeClasspath"]
- projectType = "application"
- schemaVersion = "1.5"
- destination = file("build/reports")
- outputName = "bom"
- outputFormat = "xml"
- includeBomSerialNumber = false
- includeLicenseText = false
- componentVersion = "2.0.0"
-}
+
 
 

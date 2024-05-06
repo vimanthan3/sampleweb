@@ -1,4 +1,3 @@
-
  plugins {
     id 'java'
     id 'maven-publish'
@@ -60,6 +59,7 @@ cyclonedxBom {
 task generateBom(type: org.cyclonedx.gradle.CycloneDxBomTask) {
     dependsOn configurations.runtimeClasspath
 }
+
 
 // Make sure the BOM generation is executed before the build
 build.dependsOn generateBom

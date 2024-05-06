@@ -1,4 +1,5 @@
-plugins {
+import org.cyclonedx.gradle.CycloneDxBomTask
+ plugins {
     id 'java'
     id 'maven-publish'
     id 'org.springframework.boot' version '2.7.7'

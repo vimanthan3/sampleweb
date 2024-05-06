@@ -1,4 +1,4 @@
-import org.cyclonedx.gradle.CycloneDxBomTask
+
  plugins {
     id 'java'
     id 'maven-publish'
@@ -7,6 +7,8 @@ import org.cyclonedx.gradle.CycloneDxBomTask
     id 'org.sonarqube' version '2.7'
     id 'org.cyclonedx.bom' version '1.8.1'
 }
+
+import org.cyclonedx.gradle.CycloneDxBomTask 
 
 group = 'com.github.jitpack'
 version = '2.0'

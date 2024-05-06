@@ -36,7 +36,7 @@ pipeline{
                     protocol: 'http',
                     nexusUrl: "${nexusURL}",
                     groupId: "$NEXUS_REPO_GROUPID",
-                    version: "{1.0.1}",
+                    version: "1.0.1",
                     repository: "$NEXUS_REPO",
                     credentialsId: 'nexus1',
                     artifacts: [

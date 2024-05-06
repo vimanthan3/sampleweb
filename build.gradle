@@ -19,6 +19,8 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web:2.6.2'
+    import org.cyclonedx.gradle.CycloneDxBomTask
+
 }
 
 sonarqube {

@@ -44,3 +44,8 @@ wrapper {
     gradleVersion = "7.3.3"
     distributionType = Wrapper.DistributionType.ALL
 }
+jar {
+  manifest {
+   attributes 'Main-Class': 'fully.qualified.MainClass'
+  }
+}

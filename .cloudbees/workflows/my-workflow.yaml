@@ -1,12 +1,12 @@
 apiVersion: automation.cloudbees.io/v1alpha1
 kind: workflow
 name: My workflow
-
 on:
-  push:
+  
+  pull_request:
     branches:
-      - 'master'
-
+      - main
+      - master
 jobs:
   build:
     steps:
@@ -15,5 +15,3 @@ jobs:
         shell: sh
         run: |
           echo "hello world"
-
-          

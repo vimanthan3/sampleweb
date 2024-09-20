@@ -18,6 +18,5 @@ jobs:
 
           echo "hello world"
 
-          echo "hello world"
-          echo "Current commit ID: $GITHUB_SHA"  
+          echo "hello world"  
 

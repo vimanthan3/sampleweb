@@ -15,5 +15,3 @@ jobs:
         shell: sh
         run: |
           echo "hello world"
-
-          
